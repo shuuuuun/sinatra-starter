@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "irb"
+require File.expand_path("../app", __dir__)
+
+def reload!
+  Sinatra::Reloader.perform(App)
+end
+
+IRB.start(__FILE__)

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    # command: rackup
+    # env_file:
+    #   - .env
+    environment:
+      RACK_ENV: development
+      # RACK_ENV: production
+      # PORT: 4567
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      # exclude volumes below
+      - /app/.git
+    ports:
+      - ${PORT:-4567}:4567
+    tty: true
+    stdin_open: true
+
+volumes:
+  bundle:
