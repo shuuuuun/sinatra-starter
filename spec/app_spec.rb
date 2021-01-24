@@ -15,7 +15,6 @@ describe "App" do
       before { get "/ping" }
       it { expect(last_response).to be_ok }
       it { expect(last_response.body).to eq("pong") }
-      # it { last_response.should be_ok }
     end
   end
 end

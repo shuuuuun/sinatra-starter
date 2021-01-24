@@ -58,19 +58,25 @@ class App < Sinatra::Base
     "hello"
   end
 
-  namespace "/dev" do
+  namespace "/admin" do
     # before do
     #   return 403 unless App.development?
     # end
 
     get "/" do
-      "hello dev"
+      "hello admin"
     end
   end
 
-  namespace "/api/v1" do
+  namespace "/api" do
     get "/health" do
       "ok"
+    end
+
+    namespace "/v1" do
+      get "/ping" do
+        "pong"
+      end
     end
   end
 
