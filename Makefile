@@ -32,5 +32,5 @@ ecr/login:
 ecr/tag:
 	docker tag ${IMAGE_PREFIX}_app:latest ${ECR_REGISTRY_URL}/${IMAGE_PREFIX}_app:latest
 
-ecr/push:
+ecr/push: ecr/tag
 	docker push ${ECR_REGISTRY_URL}/${IMAGE_PREFIX}_app:latest
