@@ -23,6 +23,9 @@ docker/build:
 docker/run:
 	docker container run --rm ${IMAGE_PREFIX}_app
 
+docker/run-ecr:
+	docker container run --rm --env PORT=$${PORT:-80} ${ECR_REGISTRY_URL}/${IMAGE_PREFIX}_app:latest
+
 ecr/init:
 	aws ecr create-repository --repository-name ${IMAGE_PREFIX}_app
 
