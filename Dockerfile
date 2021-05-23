@@ -17,5 +17,7 @@ RUN bundle install
 
 COPY . ${APP_ROOT}
 
+EXPOSE ${PORT:-4567}
+
 # CMD ["bundle", "exec", "ruby", "app.rb"]
 CMD ["bash", "-c", "rackup --port=${PORT:-4567} --host=0.0.0.0"]
